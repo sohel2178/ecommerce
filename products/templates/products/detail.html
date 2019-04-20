@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Detail Page Works</h2>
+{{object.slug|title}}
+<p>{{object.price|floatformat:2}}</p>
+
+{% include 'products/snippets/update_cart.html' with product=object cart=cart %}
+
+{% endblock %}

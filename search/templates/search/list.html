@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="row">
+        {% if request.GET.q %}
+            <div class="col-12 mb-3">
+                Result For <b>{{request.GET.q}}</b>
+            </div>
+
+            <div class="col-12 col-md-8 mx-auto py-4">
+                {% include 'search/search_form.html' %}
+            </div>
+        {% endif %}
+    </div>
+
+
+    {% for product in object_list %}
+        <p><a href="{{ product.get_absolute_url }}">Product Name: {{product.name}}</a></p>
+    {% endfor %}
+{% endblock %}

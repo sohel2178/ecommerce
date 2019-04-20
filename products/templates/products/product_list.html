@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for product in object_list %}
+        <p><a href="{{ product.get_absolute_url }}">Product Name: {{product.name}}</a></p>
+        {% include 'products/snippets/update_cart.html' with product=product cart=cart %}
+    {% endfor %}
+{% endblock %}
